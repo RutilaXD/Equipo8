@@ -197,7 +197,7 @@ delimiter ||
 		protectorPantallaa int(8)
 	)
 	begin
-		insert into partida(
+		insert into consolanintendos(
 			id_consola,
 			tipoControl,
 			controlesJoyC,
@@ -230,7 +230,7 @@ delimiter ||
 		arcadeStickk int(8)
 	)
 	begin
-		insert into partida(
+		insert into consolaps4(
 			id_consola,
 			dualShock,
 			auriculares,
@@ -257,7 +257,7 @@ delimiter ||
 		lkinectt int(8)
 	)
 	begin
-		insert into partida(
+		insert into consolaxbox(
 			id_consola,
 			controlXbox,
 			pilas,
