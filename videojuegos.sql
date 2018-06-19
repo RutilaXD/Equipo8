@@ -39,24 +39,9 @@ create table consola(
     so varchar(30) not null,
     consolaDisp int not null,
     juegosDisp int not null,
-    tiempoUso float not null,
-    montoRenta float not null,
-    status boolean not null,
     primary key(id_consola)
 );
 select 'Tabla "consola" creada';
-
--- tabla que guarda el arraylist de las partidas guardadas
-drop table if exists relConsolaPartida;
-create table relConsolaPartida(
-	id_relcp int(8) not null auto_increment,
-    id_consola int(8) not null,
-    id_partida int(8) not null,
-    primary key(id_relcp),
-    foreign key(id_consola) references consola(id_consola),
-    foreign key(id_partida) references partida(id_partida)
-);
-select 'tabla relConsolaPartida creada';
 
 -- tabla que guarda datos unicos de los ps4
 drop table if exists consolaPs4;
@@ -66,6 +51,9 @@ create table consolaPs4(
     dualShock int(8) not null,
     auriculares int(8) not null,
     arcadeStick int(8) not null,
+	tiempoUso float not null,
+    montoRenta float not null,
+    status boolean not null,
     primary key(id_ps4),
     foreign key(id_consola) references consola(id_consola)
 );
@@ -81,6 +69,9 @@ create table consolaXbox(
     auricularesChat int(8) not null,
     kitCargaJuega int(8) not null,
     lkinect int(8) not null,
+	tiempoUso float not null,
+    montoRenta float not null,
+    status boolean not null,
     primary key(id_Xbox),
     foreign key(id_consola) references consola(id_consola)
 );
@@ -98,10 +89,29 @@ create table consolaNintendoS(
     colorFundaC varchar(30) not null,
     volanteJoyCon int(8) not null,
     protectorPantalla int(8) not null,
+	tiempoUso float not null,
+    montoRenta float not null,
+    status boolean not null,
     primary key(id_nintendo),
     foreign key(id_consola) references consola(id_consola)
 );
 select 'tabla nintendo creada';
+
+-- tabla que guarda el arraylist de las partidas guardadas
+drop table if exists relConsolaPartida;
+create table relConsolaPartida(
+	id_relcp int(8) not null auto_increment,
+    id_partida int(8) not null,
+	id_xbox int(8),
+	id_nintendo int(8),
+	id_ps4 int(8),
+    primary key(id_relcp),
+    foreign key(id_partida) references partida(id_partida),
+	foreign key(id_xbox) references consolaxbox(id_xbox),
+	foreign key(id_nintendo) references consolanintendos(id_nintendo),
+	foreign key(id_ps4) references consolaPs4(id_ps4)
+);
+select 'tabla relConsolaPartida creada';
 
 select 'Base de datos creada exitosamente';
 
@@ -136,10 +146,7 @@ delimiter ||
 		portss int,
 		soo varchar(30),
 		consolaDispp int,
-		juegosDispp int,
-		tiempoUsoo float,
-		montoRentaa float,
-		statuss boolean
+		juegosDispp int
 	)
 	begin
 		insert into consola(
@@ -151,10 +158,7 @@ delimiter ||
 			ports,
 			so,
 			consolaDisp,
-			juegosDisp,
-			tiempoUso,
-			montoRenta,
-			status
+			juegosDisp
 		) values (
 			nombree,
 			companiaa,
@@ -164,10 +168,7 @@ delimiter ||
 			portss,
 			soo,
 			consolaDispp,
-			juegosDispp,
-			tiempoUsoo,
-			montoRentaa,
-			statuss			
+			juegosDispp		
 		);
 	end
 ||
@@ -194,7 +195,10 @@ delimiter ||
 		colorCorreaCc varchar(30),
 		colorFundaCc varchar(30),
 		volanteJoyConn int(8),
-		protectorPantallaa int(8)
+		protectorPantallaa int(8),
+		tiempoUsoo float,
+		montoRentaa float,
+		statuss boolean		
 	)
 	begin
 		insert into consolanintendos(
@@ -205,7 +209,10 @@ delimiter ||
 			colorCorreaC,
 			colorFundaC,
 			volanteJoyCon,
-			protectorPantalla
+			protectorPantalla,
+			tiempoUso,
+			montoRenta,
+			status			
 		) values (
 			id_consolaa,
 			tipoControll,
@@ -214,7 +221,10 @@ delimiter ||
 			colorCorreaC,
 			colorFundaC,
 			volanteJoyConn,
-			protectorPantallaa
+			protectorPantallaa,
+			tiempoUsoo,
+			montoRentaa,
+			statuss				
 		);
 	end
 ||
@@ -227,19 +237,28 @@ delimiter ||
 		id_consolaa int(8),
 		dualShockk int(8),
 		auricularess int(8),
-		arcadeStickk int(8)
+		arcadeStickk int(8),
+		tiempoUsoo float,
+		montoRentaa float,
+		statuss boolean		
 	)
 	begin
 		insert into consolaps4(
 			id_consola,
 			dualShock,
 			auriculares,
-			arcadeStick		
+			arcadeStick,
+			tiempoUso,
+			montoRenta,
+			status			
 		) values (
 			id_consolaa,
 			dualShockk,
 			auricularess,
-			arcadeStickk		
+			arcadeStickk,
+			tiempoUsoo,
+			montoRentaa,
+			statuss				
 		);
 	end
 ||
@@ -254,7 +273,10 @@ delimiter ||
 		pilass int(8),
 		auricularesChatt int(8),
 		kitCargaJuegaa int(8),
-		lkinectt int(8)
+		lkinectt int(8),
+		tiempoUsoo float,
+		montoRentaa float,
+		statuss boolean		
 	)
 	begin
 		insert into consolaxbox(
@@ -263,14 +285,20 @@ delimiter ||
 			pilas,
 			auricularesChat,
 			kitCargaJuega,
-			lkinect	
+			lkinect,
+			tiempoUso,
+			montoRenta,
+			status			
 		) values (
 			id_consolaa,
 			controlXboxx,
 			pilass,
 			auricularesChatt,
 			kitCargaJuegaa,
-			lkinectt			
+			lkinectt,
+			tiempoUsoo,
+			montoRentaa,
+			statuss				
 		);
 	end
 ||
