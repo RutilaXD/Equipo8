@@ -86,6 +86,9 @@
         <Property name="text" type="java.lang.String" value="Ver consola en uso"/>
         <Property name="actionCommand" type="java.lang.String" value="verUso"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerConsolaUsoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnVideoEnUso">
       <Properties>
@@ -99,11 +102,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="tiempo en uso"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTiemUsoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Partidas guardadas"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnsalir">
       <Properties>

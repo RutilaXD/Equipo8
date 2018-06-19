@@ -41,6 +41,11 @@ public class Ventana extends javax.swing.JFrame {
 
         btnVerConsolaUso.setText("Ver consola en uso");
         btnVerConsolaUso.setActionCommand("verUso");
+        btnVerConsolaUso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerConsolaUsoActionPerformed(evt);
+            }
+        });
 
         btnVideoEnUso.setText("videojuegos en uso");
         btnVideoEnUso.addActionListener(new java.awt.event.ActionListener() {
@@ -50,8 +55,18 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btnTiemUso.setText("tiempo en uso");
+        btnTiemUso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTiemUsoActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Partidas guardadas");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         btnsalir.setText("Salir");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
@@ -106,13 +121,29 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVideoEnUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVideoEnUsoActionPerformed
-        // TODO add your handling code here:
+        JuegosEnUso uso = new JuegosEnUso();
+        uso.setVisible(true);
     }//GEN-LAST:event_btnVideoEnUsoActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         System.exit(0); 
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsalirActionPerformed
+
+    private void btnVerConsolaUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerConsolaUsoActionPerformed
+        ConsolaEnUso enUso = new ConsolaEnUso();
+        enUso.setVisible(true);
+    }//GEN-LAST:event_btnVerConsolaUsoActionPerformed
+
+    private void btnTiemUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiemUsoActionPerformed
+        TiempoUso uso = new TiempoUso();
+        uso.setVisible(true);
+    }//GEN-LAST:event_btnTiemUsoActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        PartidasGuardadas ward = new PartidasGuardadas();
+        ward.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
