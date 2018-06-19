@@ -1,26 +1,20 @@
 package model;
-import java.util.*;
+
+import java.sql.Date;
 
 /**
  * @author Equipo 8
  */
 public class Partida {
 
-    /**
-     * 
-     */
-    private Date fecha;
 
-    /**
-     * 
-     */
+    private Date fecha;
     private String nombre;
 
 
     /**
      * @param fecha 
      * @param nombre 
-     * @return
      */
     public Partida(Date fecha, String nombre) {    
         this.fecha = fecha;
@@ -28,7 +22,7 @@ public class Partida {
     }
 
     /**
-     * @return
+     * @return fecha
      */
     public Date getFecha() {
         // TODO implement here
@@ -36,7 +30,7 @@ public class Partida {
     }
 
     /**
-     * @return
+     * @return nombre
      */
     public String getNombre() {
         // TODO implement here
