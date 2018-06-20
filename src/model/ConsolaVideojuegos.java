@@ -15,7 +15,8 @@ public class ConsolaVideojuegos {
     protected int noConsolasDisp;
     protected int noJuegosDisp;
 
-    public ConsolaVideojuegos(String nombre, String compania, float cpu, float ram, float discoDuro, int noPuertos, String sistemaOperativo, int noConsolasDisp, int noJuegosDisp) {
+    public ConsolaVideojuegos(String nombre, String compania, float cpu, float ram, float discoDuro,
+            int noPuertos, String sistemaOperativo, int noConsolasDisp, int noJuegosDisp) {
         this.nombre = nombre;
         this.compania = compania;
         this.cpu = cpu;
@@ -27,7 +28,9 @@ public class ConsolaVideojuegos {
         this.noJuegosDisp = noJuegosDisp;
     }
 
-
+    public ConsolaVideojuegos(){
+        System.out.println("Hola");
+    }
     
 
     public void limpiezaPartidas() {

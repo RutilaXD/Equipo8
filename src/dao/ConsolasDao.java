@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import util.Database;
+import model.*;
 
 /**
  *
@@ -38,4 +39,7 @@ public class ConsolasDao {
         return consolas;
     }
     
+    public void registraXbox(XboxOne xbox){
+        
+    }
 }

@@ -109,6 +109,10 @@ public class RegistrarConsola extends javax.swing.JFrame implements ItemListener
         switch(tConsola){
             case 0:
                 dispose(); break;
+            case 1:
+                RegistrarXbox xbox = new RegistrarXbox();
+                xbox.setVisible(true);
+                break;
         }
     }//GEN-LAST:event_btnSiguienteActionPerformed
 

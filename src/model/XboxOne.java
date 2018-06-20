@@ -28,6 +28,15 @@ public class XboxOne extends ConsolaVideojuegos {
         this.kinect = kinect;
     }
 
+    public XboxOne(int controlXbox, int noPilas, int auricularesChat, int kitCargaJuega, int kinect) {
+        this.controlXbox = controlXbox;
+        this.noPilas = noPilas;
+        this.auricularesChat = auricularesChat;
+        this.kitCargaJuega = kitCargaJuega;
+        this.kinect = kinect;
+    }
+    
+
     /**
      * @return
      */
