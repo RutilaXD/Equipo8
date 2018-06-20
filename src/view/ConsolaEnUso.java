@@ -5,17 +5,61 @@
  */
 package view;
 
+import dao.ConsolasDao;
+import java.util.ArrayList;
+import model.ConsolaVideojuegos;
+
 /**
  *
  * @author hp
  */
 public class ConsolaEnUso extends javax.swing.JFrame {
-
+    
+    ArrayList<ConsolaVideojuegos> consolas;
+    ConsolasDao dao;
+    
     /**
      * Creates new form ConsolaEnUso
      */
     public ConsolaEnUso() {
         initComponents();
+        consolas = new ArrayList<>();
+        dao = new ConsolasDao();
+        consolas = dao.verConsolas();
+
+       String matriz[][] = new String[consolas.size()][9];
+        for(int i = 0; i < consolas.size(); i++){
+            matriz[i][0] = consolas.get(i).getNombre();
+            matriz[i][1] = consolas.get(i).getCompania();
+            matriz[i][2] = Float.toString(consolas.get(i).getCpu());
+            matriz[i][3] = String.valueOf(consolas.get(i).getRam());
+            matriz[i][4] = Float.toString(consolas.get(i).getDiscoDuro());
+            matriz[i][5] = Integer.toString(consolas.get(i).getNoPuertos());
+            matriz[i][6] = consolas.get(i).getSistemaOperativo();
+            matriz[i][7] = Float.toString(consolas.get(i).getNoConsolasDisp());
+            matriz[i][8] = Float.toString(consolas.get(i).getNoJuegosDisp());
+            
+        }
+        
+         for(int i = 0; i < consolas.size(); i++){
+            System.out.println(matriz[i][0]);
+            System.out.println(matriz[i][1]);
+            System.out.println(matriz[i][2]);
+            System.out.println(matriz[i][3]);
+            System.out.println(matriz[i][4]);
+            System.out.println(matriz[i][5]);
+            System.out.println(matriz[i][6]);
+            System.out.println(matriz[i][7]);
+            System.out.println(matriz[i][8]);
+        }
+        
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            matriz,
+            new String [] {
+                "Nombre", "COmpañia", "CPU", "RAM", "Hard Disk", "Ports", "SO", "Consolas Disponibles", "Juegos Disponibles"
+            }
+        )); 
+        jScrollPane1.setViewportView(jTable1);        
     }
 
     /**
@@ -29,6 +73,9 @@ public class ConsolaEnUso extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         btnsalir = new javax.swing.JButton();
+        btnSRegistrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("consola");
@@ -43,25 +90,64 @@ public class ConsolaEnUso extends javax.swing.JFrame {
             }
         });
 
+        btnSRegistrar.setText("Regresar");
+        btnSRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSRegistrarActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nombre", "COmpañia", "CPU", "RAM", "Hard Disk", "Ports", "SO", "Consolas Disponibles", "Juegos Disponibles"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(139, 139, 139))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnsalir))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(266, 266, 266)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(343, Short.MAX_VALUE)
+                .addComponent(btnSRegistrar)
+                .addGap(198, 198, 198)
+                .addComponent(btnsalir)
+                .addGap(319, 319, 319))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(249, 249, 249)
-                .addComponent(btnsalir))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnsalir)
+                    .addComponent(btnSRegistrar))
+                .addGap(45, 45, 45))
         );
 
         pack();
@@ -71,6 +157,10 @@ public class ConsolaEnUso extends javax.swing.JFrame {
         dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnsalirActionPerformed
+
+    private void btnSRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSRegistrarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,7 +198,10 @@ public class ConsolaEnUso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSRegistrar;
     private javax.swing.JButton btnsalir;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

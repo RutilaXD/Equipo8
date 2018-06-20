@@ -27,6 +27,10 @@ public class ConsolaVideojuegos {
         this.noConsolasDisp = noConsolasDisp;
         this.noJuegosDisp = noJuegosDisp;
     }
+    
+    public String getNombre(){
+        return this.nombre;
+    }
 
     public ConsolaVideojuegos(){
         System.out.println("Hola");

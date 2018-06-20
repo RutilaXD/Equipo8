@@ -29,9 +29,7 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnVerConsolaUso = new javax.swing.JButton();
-        btnPonerEnUso = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        btnPartidasGuardadas = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,24 +45,10 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        btnPonerEnUso.setText("Poner consola en uso");
-        btnPonerEnUso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPonerEnUsoActionPerformed(evt);
-            }
-        });
-
         btnRegistrar.setText("Registrar consola");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
-            }
-        });
-
-        btnPartidasGuardadas.setText("Partidas guardadas");
-        btnPartidasGuardadas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPartidasGuardadasActionPerformed(evt);
             }
         });
 
@@ -82,40 +66,27 @@ public class Ventana extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnsalir))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(btnRegistrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(btnVerConsolaUso)
+                .addGap(45, 45, 45))
             .addGroup(layout.createSequentialGroup()
                 .addGap(122, 122, 122)
                 .addComponent(jLabel1)
-                .addContainerGap(117, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVerConsolaUso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPartidasGuardadas))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRegistrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPonerEnUso)))
-                .addGap(45, 45, 45))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRegistrar)
-                            .addComponent(btnPonerEnUso))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVerConsolaUso)
-                    .addComponent(btnPartidasGuardadas))
-                .addGap(68, 68, 68)
+                    .addComponent(btnRegistrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(btnsalir))
         );
 
@@ -136,16 +107,6 @@ public class Ventana extends javax.swing.JFrame {
         RegistrarConsola uso = new RegistrarConsola();
         uso.setVisible(true);
     }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void btnPartidasGuardadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartidasGuardadasActionPerformed
-        PartidasGuardadas ward = new PartidasGuardadas();
-        ward.setVisible(true);
-    }//GEN-LAST:event_btnPartidasGuardadasActionPerformed
-
-    private void btnPonerEnUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPonerEnUsoActionPerformed
-        PonerEnUso uso = new PonerEnUso();
-        uso.setVisible(true);
-    }//GEN-LAST:event_btnPonerEnUsoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,8 +144,6 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPartidasGuardadas;
-    private javax.swing.JButton btnPonerEnUso;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVerConsolaUso;
     private javax.swing.JButton btnsalir;

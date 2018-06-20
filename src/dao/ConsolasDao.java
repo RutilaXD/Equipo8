@@ -78,4 +78,39 @@ public class ConsolasDao {
             System.out.println("Error SQL -> "+e.getMessage());
         }          
     }
+    
+    public ArrayList<ConsolaVideojuegos> verConsolas(){
+        ArrayList<ConsolaVideojuegos> consolas = new ArrayList<>();
+        ConsolaVideojuegos c;
+        String nombre;
+        String compa;
+        float cpu;
+        int ram;
+        int hd;
+        int port;
+        String so;
+        int consDisp;
+        int juegosDisp;
+       try{
+            ps = connection.prepareCall("select * from consola;");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                nombre = rs.getString("nombre");
+                compa = rs.getString("compania");
+                cpu = rs.getFloat("cpu");
+                ram = rs.getInt("ram");
+                hd = rs.getInt("harddisk");
+                port = rs.getInt("ports");
+                so = rs.getString("so");
+                consDisp = rs.getInt("consolaDisp");
+                juegosDisp = rs.getInt("juegosDisp");
+                c = new ConsolaVideojuegos(nombre, compa, cpu, ram, hd, port, compa, consDisp, juegosDisp);
+                consolas.add(c);
+            }
+            
+        }catch(SQLException e){
+            System.out.println("Error SQL -> "+e.getMessage());
+        }          
+        return consolas;
+    }
 }
