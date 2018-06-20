@@ -7,6 +7,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import util.Database;
 
 /**
@@ -17,9 +20,22 @@ public class ConsolasDao {
     private final Connection connection;
     PreparedStatement ps;
 
-    public ConsolasDao(Connection connection) {
+    public ConsolasDao() {
         this.connection = Database.getConnection();
     }
     
+    public ArrayList<String> cosultaTipoConsola(){
+        ArrayList<String> consolas = new ArrayList<>();
+       try{
+            ps = connection.prepareStatement("select consola.nombre from consola;");
+            ResultSet rs =ps.executeQuery();
+            while(rs.next()){
+                consolas.add(rs.getString("nombre"));
+            }
+        }catch(SQLException e){
+            System.out.println("Error SQL -> "+e.getMessage());
+        }        
+        return consolas;
+    }
     
 }

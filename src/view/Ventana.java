@@ -29,9 +29,9 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnVerConsolaUso = new javax.swing.JButton();
-        btnVideoEnUso = new javax.swing.JButton();
-        btnTiemUso = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnPonerEnUso = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnPartidasGuardadas = new javax.swing.JButton();
         btnsalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,7 +39,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Tienda de videojuegos");
 
-        btnVerConsolaUso.setText("Ver consola en uso");
+        btnVerConsolaUso.setText("Ver consolas en uso");
         btnVerConsolaUso.setActionCommand("verUso");
         btnVerConsolaUso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,24 +47,24 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        btnVideoEnUso.setText("videojuegos en uso");
-        btnVideoEnUso.addActionListener(new java.awt.event.ActionListener() {
+        btnPonerEnUso.setText("Poner consola en uso");
+        btnPonerEnUso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVideoEnUsoActionPerformed(evt);
+                btnPonerEnUsoActionPerformed(evt);
             }
         });
 
-        btnTiemUso.setText("tiempo en uso");
-        btnTiemUso.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setText("Registrar consola");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTiemUsoActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Partidas guardadas");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnPartidasGuardadas.setText("Partidas guardadas");
+        btnPartidasGuardadas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnPartidasGuardadasActionPerformed(evt);
             }
         });
 
@@ -79,51 +79,48 @@ public class Ventana extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnVerConsolaUso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVideoEnUso))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jLabel1)
-                        .addGap(0, 107, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(btnTiemUso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnsalir))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(jLabel1)
+                .addContainerGap(117, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnVerConsolaUso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPartidasGuardadas))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnRegistrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPonerEnUso)))
+                .addGap(45, 45, 45))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRegistrar)
+                            .addComponent(btnPonerEnUso))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVerConsolaUso)
-                    .addComponent(btnVideoEnUso))
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTiemUso)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                    .addComponent(btnPartidasGuardadas))
+                .addGap(68, 68, 68)
                 .addComponent(btnsalir))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVideoEnUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVideoEnUsoActionPerformed
-        JuegosEnUso uso = new JuegosEnUso();
-        uso.setVisible(true);
-    }//GEN-LAST:event_btnVideoEnUsoActionPerformed
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
         System.exit(0); 
@@ -135,15 +132,20 @@ public class Ventana extends javax.swing.JFrame {
         enUso.setVisible(true);
     }//GEN-LAST:event_btnVerConsolaUsoActionPerformed
 
-    private void btnTiemUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiemUsoActionPerformed
-        TiempoUso uso = new TiempoUso();
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        RegistrarConsola uso = new RegistrarConsola();
         uso.setVisible(true);
-    }//GEN-LAST:event_btnTiemUsoActionPerformed
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnPartidasGuardadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPartidasGuardadasActionPerformed
         PartidasGuardadas ward = new PartidasGuardadas();
         ward.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnPartidasGuardadasActionPerformed
+
+    private void btnPonerEnUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPonerEnUsoActionPerformed
+        PonerEnUso uso = new PonerEnUso();
+        uso.setVisible(true);
+    }//GEN-LAST:event_btnPonerEnUsoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,11 +183,11 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnTiemUso;
+    private javax.swing.JButton btnPartidasGuardadas;
+    private javax.swing.JButton btnPonerEnUso;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVerConsolaUso;
-    private javax.swing.JButton btnVideoEnUso;
     private javax.swing.JButton btnsalir;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
