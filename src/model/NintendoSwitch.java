@@ -33,7 +33,20 @@ public class NintendoSwitch extends ConsolaVideojuegos {
         this.protectorPantalla = protectorPantalla;
     }
     
-
+    public NintendoSwitch(String tipoControl, int controlesJoyCon, int controlesPro, String colorCorreaC, 
+            String colorFundaC, int volanteJoyCon, int protectorPantalla) {
+        this.tipoControl = tipoControl;
+        this.controlesJoyCon = controlesJoyCon;
+        this.controlesPro = controlesPro;
+        this.colorCorreaC = colorCorreaC;
+        this.colorFundaC = colorFundaC;
+        this.volanteJoyCon = volanteJoyCon;
+        this.protectorPantalla = protectorPantalla;
+        this.tiempoUso = 0f;
+        this.montoRenta = 0f;
+        this.status = false;        
+    }
+    
     /**
      * @return
      */

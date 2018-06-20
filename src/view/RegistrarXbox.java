@@ -43,9 +43,9 @@ public class RegistrarXbox extends javax.swing.JFrame {
         kinect = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         registrar = new javax.swing.JButton();
+        btnSRegistrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(420, 350));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Registrar Xbox");
@@ -91,6 +91,13 @@ public class RegistrarXbox extends javax.swing.JFrame {
             }
         });
 
+        btnSRegistrar.setText("Regresar");
+        btnSRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSRegistrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,21 +110,23 @@ public class RegistrarXbox extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(174, 174, 174))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel5)
-                            .addGap(50, 50, 50)))
+                            .addGap(50, 50, 50))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(registrar)
+                                .addComponent(jLabel6))
+                            .addGap(55, 55, 55)
+                            .addComponent(btnSRegistrar)
+                            .addGap(42, 42, 42)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(registrar)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
@@ -140,9 +149,9 @@ public class RegistrarXbox extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(controles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(pilas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pilas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -155,9 +164,11 @@ public class RegistrarXbox extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(kinect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(registrar)
-                .addGap(33, 33, 33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registrar)
+                    .addComponent(btnSRegistrar))
+                .addGap(32, 32, 32))
         );
 
         pack();
@@ -180,15 +191,20 @@ public class RegistrarXbox extends javax.swing.JFrame {
     }//GEN-LAST:event_kinectActionPerformed
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
-//        int controlXbox = Integer.parseInt(controles.getText());
-//        int noPilas; 
-//        int auricularesChat; 
-//        int kitCargaJuega;
-//        int kinect;
-//        XboxOne xbox = new XboxOne(controlXbox);
-//        dao = new ConsolasDao();
-//        dao.registraXbox();
+        int controlXbox = Integer.parseInt(controles.getText());
+        int noPilas = Integer.parseInt(pilas.getText()); 
+        int auricularesChat = Integer.parseInt(auriculares.getText()); 
+        int kitCargaJuega = Integer.parseInt(kit.getText());
+        int kinectt = Integer.parseInt(kinect.getText());
+        XboxOne xbox = new XboxOne(controlXbox,noPilas,auricularesChat,kitCargaJuega,kinectt);
+        dao = new ConsolasDao();
+        dao.registraXbox(xbox);
+        dispose();
     }//GEN-LAST:event_registrarActionPerformed
+
+    private void btnSRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSRegistrarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,6 +243,7 @@ public class RegistrarXbox extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField auriculares;
+    private javax.swing.JButton btnSRegistrar;
     private javax.swing.JTextField controles;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

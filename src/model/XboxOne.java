@@ -34,6 +34,9 @@ public class XboxOne extends ConsolaVideojuegos {
         this.auricularesChat = auricularesChat;
         this.kitCargaJuega = kitCargaJuega;
         this.kinect = kinect;
+        this.tiempoUso = 0f;
+        this.montoRenta = 0f;
+        this.status = false;
     }
     
 
