@@ -72,8 +72,8 @@ public class ConsolasDao {
             ps.setFloat(9, nintendo.getTiempoUso());
             ps.setFloat(10, nintendo.getMontoRenta());
             ps.setBoolean(11, nintendo.isStatus());
-            ps.executeQuery();
-            System.out.println("Xbox registrado con exito");
+            ps.execute();
+            System.out.println("Nintendo registrado con exito");
         }catch(SQLException e){
             System.out.println("Error SQL -> "+e.getMessage());
         }          
