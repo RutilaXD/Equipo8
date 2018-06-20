@@ -45,7 +45,7 @@ public class RegistrarConsola extends javax.swing.JFrame implements ItemListener
         btnSiguiente = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         tipoConsola = new javax.swing.JComboBox();
-        btnSRegistrar = new javax.swing.JButton();
+        regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,10 +69,10 @@ public class RegistrarConsola extends javax.swing.JFrame implements ItemListener
             }
         });
 
-        btnSRegistrar.setText("Regresar");
-        btnSRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        regresar.setText("Regresar");
+        regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSRegistrarActionPerformed(evt);
+                regresarActionPerformed(evt);
             }
         });
 
@@ -94,7 +94,7 @@ public class RegistrarConsola extends javax.swing.JFrame implements ItemListener
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSiguiente)
                 .addGap(18, 18, 18)
-                .addComponent(btnSRegistrar)
+                .addComponent(regresar)
                 .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
@@ -109,7 +109,7 @@ public class RegistrarConsola extends javax.swing.JFrame implements ItemListener
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSiguiente)
-                    .addComponent(btnSRegistrar))
+                    .addComponent(regresar))
                 .addContainerGap())
         );
 
@@ -127,6 +127,10 @@ public class RegistrarConsola extends javax.swing.JFrame implements ItemListener
             case 2:
                 RegistrarNintendo nintendo = new RegistrarNintendo();
                 nintendo.setVisible(true);
+            case 3:
+                RegistrarPS4 ps4 = new RegistrarPS4();
+                ps4.setVisible(true);
+            default: dispose();
         }
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
@@ -134,9 +138,9 @@ public class RegistrarConsola extends javax.swing.JFrame implements ItemListener
         // TODO add your handling code here:
     }//GEN-LAST:event_tipoConsolaActionPerformed
 
-    private void btnSRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSRegistrarActionPerformed
+    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         dispose();
-    }//GEN-LAST:event_btnSRegistrarActionPerformed
+    }//GEN-LAST:event_regresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,10 +180,10 @@ public class RegistrarConsola extends javax.swing.JFrame implements ItemListener
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSRegistrar;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton regresar;
     private javax.swing.JComboBox tipoConsola;
     // End of variables declaration//GEN-END:variables
 
